@@ -1,0 +1,53 @@
+#!/bin/bash
+
+SESSION_NAME=$1
+
+
+# Check if the session already exists
+if tmux has-session -t $SESSION_NAME 2>/dev/null; then
+    echo "Session $SESSION_NAME already exists. Attaching to it."
+    tmux attach-session -t $SESSION_NAME
+else
+    # Create a new session and name it
+    tmux new-session -d -s $SESSION_NAME
+
+    # Split the window horizontally
+    tmux split-window -v
+    
+    tmux resize-pane -D 30
+
+    
+
+    # Send a command to the first pane
+    tmux send-keys -t 0 'cd 'pwd C-m
+
+    # Send a command to the second pane
+    tmux send-keys -t 1 'cd 'pwd C-m
+
+    tmux send-keys -t 2 'cd 'pwd C-m
+
+    #tmux resize-pane -L 30 
+
+    tmux send-keys -t 0 'clear' C-m
+    
+    tmux swap-pane -D
+
+    
+    tmux split-window -h
+    
+
+    tmux swap-pane -D
+    tmux swap-pane -D
+
+    tmux send-keys -t 2 'tmux resize-pane -D 15' C-m
+
+    tmux send-keys -t 0 'clear' C-m
+    tmux send-keys -t 1 'clear' C-m
+    tmux send-keys -t 2 'clear' C-m
+
+
+    tmux send-keys -t 0 'nvim' C-m
+    tmux send-keys -t 1 'nvim' C-m
+    # Attach to the created session
+    tmux attach-session -t $SESSION_NAME
+fi
