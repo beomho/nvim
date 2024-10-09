@@ -14,7 +14,7 @@ else
     # Split the window horizontally
     tmux split-window -v
     
-    tmux resize-pane -D 30
+    tmux resize-pane -D 15 
 
     
 
@@ -36,18 +36,32 @@ else
     tmux split-window -h
     
 
-    tmux swap-pane -D
+
     tmux swap-pane -D
 
-    tmux send-keys -t 2 'tmux resize-pane -D 15' C-m
+
+    tmux split-window -h
+
+
+    tmux swap-pane -D
+
+#    tmux send-keys -t 2 'tmux resize-pane -D 15' C-m
 
     tmux send-keys -t 0 'clear' C-m
     tmux send-keys -t 1 'clear' C-m
     tmux send-keys -t 2 'clear' C-m
+    tmux send-keys -t 3 'clear' C-m
 
 
     tmux send-keys -t 0 'nvim' C-m
+    tmux send-keys -t 0 ENTER
     tmux send-keys -t 1 'nvim' C-m
+    tmux send-keys -t 1 ENTER
+
+    tmux send-keys -t 2 './gradlew build --continuous --parallel --build-cache --configuration-cache' C-m
+    tmux send-keys -t 3 './gradlew bootRun' C-m
+
+    tmux refresh -S
     # Attach to the created session
     tmux attach-session -t $SESSION_NAME
 fi

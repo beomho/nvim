@@ -102,7 +102,6 @@ else
   -- vim.cmd("vim.g.tokyonight_transparent = vim.g.transparent_enabled")
   -- vim.cmd[[hi NvimTreeNormal guibg=NONE ctermbg=NONE]]
   -- vim.cmd("autocmd Colorscheme * highlight NvimTreeNormal guibg=none guifg=##16161E")
-
+  vim.wo.relativenumber = true
 end
-
 

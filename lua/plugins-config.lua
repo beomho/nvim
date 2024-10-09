@@ -663,6 +663,6 @@ lspconfig.rust_analyzer.setup({
   end,
 })
 
---require('java').setup()
+require('java').setup()
 
---require('lspconfig').jdtls.setup({})
+require('lspconfig').jdtls.setup({})
