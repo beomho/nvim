@@ -241,6 +241,8 @@ local function on_attach(bufnr)
   vim.keymap.set('n', 'Y',     api.fs.copy.relative_path,             opts('Copy Relative Path'))
   vim.keymap.set('n', '<2-LeftMouse>',  api.node.open.edit,           opts('Open'))
   vim.keymap.set('n', '<2-RightMouse>', api.tree.change_root_to_node, opts('CD'))
+
+
   -- END_DEFAULT_ON_ATTACH
 
 
@@ -396,6 +398,7 @@ vim.keymap.set('n', "<leader>N" , "*")
 vim.keymap.set('n', "<leader>n" , "<cmd>lua require('illuminate').goto_next_reference()<cr>")
 vim.keymap.set('n', "<leader>p" , "<cmd>lua require('illuminate').goto_prev_reference()<cr>")
 
+vim.keymap.set('n', "<leader>lg" , "<cmd>LazyGit<cr>")
 
 nmap('<leader>U', ':Navbuddy<CR>','Navbuddy')
 
