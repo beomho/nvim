@@ -1,8 +1,10 @@
 # nvim
 
 
+telescope.live-grep
+sudo dnf install fd-find
 
-
+sudo dnf install ripgrep
 
 
 

@@ -1,7 +1,7 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-
+vim.deprecate = function() end
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = { "*.py" },
   command = "setlocal tabstop=2 shiftwidth=2"
